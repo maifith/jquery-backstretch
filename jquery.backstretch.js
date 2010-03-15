@@ -29,7 +29,9 @@
     function _init() {
       // Prepend image, wrapped in a DIV, with some positioning and zIndex voodoo
       if(src) {
-        var commonCSS = {left: 0, top: 0},
+        if (setings.vert) {vert = settings.vert;} else {vert = "top";}
+        if (settings.horiz) {horiz = settings.horiz;} else {horiz = "left";}
+        var commonCSS = {horiz: 0, vert: 0},
             wrap = $("<div />").attr("id", "backstretch-wrap")
                                .css( $.extend(commonCSS, {position: "absolute", zIndex: -1}) ),
             container = $("<div />").attr("id", "backstretch")
